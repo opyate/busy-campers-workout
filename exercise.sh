@@ -1,17 +1,20 @@
 #!/bin/bash
 # http://well.blogs.nytimes.com/2013/05/09/the-scientific-7-minute-workout/
-
 for i in $(ls -d */) ; do
-	/Applications/Preview.app/Contents/MacOS/Preview $i/*.jpeg &
-	PID=$!
-	say ok, the next exercise will be
-	cat $i/*.txt | say
-	sleep 8
-	say get ready
+  echo -e "\n$(cat $i/*.txt)\n"
+	echo " ok, the next exercise will be" | espeak > /dev/null 2>espeak1
+  echo $(cat $i/*.txt) | espeak > /dev/null 2>espeak1
+	sleep 6
+	echo "get ready" | espeak > /dev/null 2>espeak1
 	sleep 2
-	say go go go
-	sleep 15
-	say half way
-	sleep 15
-	kill -9 $PID
+	echo "go go go" | espeak > /dev/null 2>espeak1
+	sleep 20
+	echo "half way" | espeak > /dev/null 2>espeak1
+	sleep 17
+  echo three | espeak > /dev/null 2>espeak1
+  sleep 1
+  echo two | espeak > /dev/null 2>espeak1
+  sleep 1
+  echo one | espeak > /dev/null 2>espeak1
+  sleep 1
 done
